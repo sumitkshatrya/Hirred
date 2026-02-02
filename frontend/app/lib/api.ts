@@ -1,6 +1,6 @@
 export const postRequirement = async (data: any) => {
   const res = await fetch(
-    "https://localhost:5000",
+    "https://hirred-kj2v.vercel.app/",
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
