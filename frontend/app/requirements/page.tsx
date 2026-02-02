@@ -19,7 +19,7 @@ export default function RequirementsPage() {
   const [error, setError] = useState("");
 
  useEffect(() => {
-    fetch("https://hirred-2khy.onrender.com/api/requirements")
+    fetch("https://hirred-1-phym.onrender.com/api/requirements")
       .then((res) => {
         if (!res.ok) throw new Error("API not found");
         return res.json();
