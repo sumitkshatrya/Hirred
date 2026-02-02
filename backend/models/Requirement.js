@@ -5,6 +5,7 @@ const RequirementSchema = new mongoose.Schema(
     eventName: String,
     eventType: String,
     date: String,
+    time: String,
     location: String,
     venue: String,
 

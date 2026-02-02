@@ -1,21 +1,32 @@
 require("dotenv").config();
-const express = require("express")
-const cors = require("cors")
-const connectDB = require("./config/db")
+const express = require("express");
+const cors = require("cors");
+const connectDB = require("./config/db");
 
-const app = express()
-app.use(cors());
-connectDB();
+const app = express();
+
+// ✅ CORS: allow localhost + Vercel
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "https://hirred-bay.vercel.app",
+    ],
+  })
+);
 
 app.use(express.json());
+connectDB();
 
-app.use("/api/requirements", require("./routes/requirements"))
+// ✅ routes
 
-const PORT = process.env.PORT || 5000;
+app.use("/api/requirements", require("./routes/requirements"));
 
-app.listen(PORT, ()=>{
-    console.log(`App Run successfully on port ${PORT}`)
+app.get("/", (req,res)=>{
+  res.send("server is runnning")
 })
 
-
-
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Backend running on port ${PORT}`);
+});

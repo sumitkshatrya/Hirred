@@ -29,9 +29,11 @@ export default function Page() {
 
   const submit = async () => {
     await postRequirement(data);
+    setStep(4); 
 
-    // ✅ DO NOT RESET STEP HERE
-    setStep(4); // success screen
+    setTimeout(() => {
+    window.location.href = "/requirements";
+  }, 1500);
   };
 
   return (
@@ -74,8 +76,18 @@ export default function Page() {
              Requirement Posted Successfully
           </h2>
 
+        <button
+      className="btn w-full"
+      onClick={() => {
+        window.location.href = "/requirements";
+      }}
+    >
+      View All Requirements
+    </button>
+
+
           <button
-            className="btn w-full"
+            className="btn-outline w-full"
             onClick={() => {
               setData({ details: {} });
               setStep(1);
