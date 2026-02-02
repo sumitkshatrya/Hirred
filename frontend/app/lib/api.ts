@@ -1,6 +1,6 @@
 export const postRequirement = async (data: any) => {
   const res = await fetch(
-    "https://hirred-1-phym.onrender.com/api/requirements",
+    "https://hirred-1-phym.onrender.com",
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
